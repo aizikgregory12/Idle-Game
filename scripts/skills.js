@@ -1,0 +1,1 @@
+skillCost = 200;

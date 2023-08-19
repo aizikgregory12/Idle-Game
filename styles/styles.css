@@ -1,0 +1,122 @@
+body {
+    background-color: #fefae0;
+}
+
+.mainDisplay {
+    min-width: 550px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #283618;
+    border-radius: 10px;
+}
+
+.mainDisplay h1 {
+    margin: 7px;
+    height: 75%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a3b18a;
+    border-radius: 5px;
+}
+
+.mainButtons {
+    width: 200px;
+    height: 300px;
+    min-height: 300px;
+    min-width: 200px;
+    margin-top: 10px;
+    padding: 7px;
+    background-color: #283618;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    resize: both;
+    overflow: auto;
+}
+
+.mainButtons button {
+    height: 25%;
+    width: 100%;
+    font-size: 2em;
+    background-color: #a3b18a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.secondLayer {
+    display: flex;
+    align-items: center;
+}
+
+.expBar {
+    position: relative;
+    height: 30px;
+    width: 100%;
+    background-color: #ccc;
+    border-radius: 15px;
+    margin: 20px;
+    border: 3px solid #283618;
+}
+
+#expFill {
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background-color: #a3b18a;
+    border-radius: 13px;
+    transition: width 0.2s ease-in-out;
+}
+
+.expInfo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+#level,
+#expNeeded {
+    margin: 10px;
+}
+
+
+.skillTree {
+    height: 500px;
+    width: 350px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #a3b18a;
+    border: 5px solid #283618;
+    border-radius: 10px;
+}
+
+.manualSkills,
+.autoSkills,
+.fightSkills,
+.extraSkills {
+    margin: 10px;
+    display: flex;
+    max-width: fit-content;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skillTree button {
+    margin: 5px;
+    max-width: 50px;
+    border: 2px solid #283618;
+    border-radius: 5px;
+    background-color: #fefae0;
+}
+
