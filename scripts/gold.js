@@ -1,81 +1,89 @@
-let total = 0;
-let goldPerClick = 100;
-let autoGold = 0;
-
-let currentExp = 0;
-let currentLevel = 1;
-let expNeededValue = 100;
-
-let upgradeCost = 10;
-let autoCost = 10;
-
-var skillCost = 100;
-
-
-const clickForGold = document.querySelector('#clickForGold');
-const upgradeButton = document.querySelector('#upgrade');
-const autoClick = document.querySelector('#autoClick');
-const temp = document.querySelector('#temp');
-
 const totalGold = document.getElementById('total');
-const goldPerClickDisplay = document.getElementById('goldPerClick');
-const autoClickDisplay = document.getElementById('goldPerSecond');
+const goldPerClick = document.getElementById('goldPerClick');
+const goldPerSecond = document.getElementById('goldPerSecond');
 
-const expFill = document.getElementById('expFill');
-const levelNumber = document.getElementById('level');
-const expNeeded = document.getElementById('expNeeded');
+const goldUpgradeButton = document.querySelector('#upgrade');
+const clickHere = document.querySelector('#clickForGold');
+const autoClicker = document.querySelector('#autoClick');
+const upgradeCost = document.querySelector('#upgradeCost');
+const autoClickCost = document.querySelector('#autoCost');
 
-clickForGold.addEventListener('click', () => {
-    currentExp += goldPerClick;
-    total += goldPerClick;
+let interval = 1000;
+
+let gold = {
+    total: 0,
+    goldPerClick: 1,
+    goldPerSecond: 0,
+    addGold() {
+        this.total += this.goldPerClick;
+        updateDisplays();
+    }
+};
+
+let goldUpgrade = {
+    cost: 10,
+    costMultiplier: 1.2,
+    level: 1,
+    multiplier: 1,
+    upgrade() {
+        if (gold.total >= this.cost) {
+            gold.total -= this.cost;
+            this.level++;
+            this.cost = Math.round(this.cost * this.costMultiplier) + 1;
+            gold.goldPerClick = this.level * this.multiplier;
+        }
+        updateDisplays();
+    }
+};
+
+let autoClick = {
+    cost: 10,
+    costMultiplier: 10,
+    level: 0,
+    multiplier: 1,
+    upgrade() {
+        if (gold.total >= this.cost) {
+            gold.total -= this.cost;
+            this.level++;
+            this.cost = this.level * this.costMultiplier;
+            gold.goldPerSecond = this.level * this.multiplier;
+        }
+        updateDisplays();
+    }
+};
+
+clickHere.addEventListener('click', () => {
+    gold.addGold();
+    exp.currentExp += gold.goldPerClick;
     levelUp();
     adjustExpBar();
-    totalGold.innerText = `${total} gold`
 });
 
-
-upgradeButton.addEventListener('click', () => {
-    if (total >= upgradeCost) {
-        total -= upgradeCost;
-        upgradeCost = Math.round((upgradeCost ** 1.02) + 1);
-        goldPerClick++;
-        goldPerClickDisplay.innerText = `${goldPerClick} gold/click`;
-    }
-    totalGold.innerText = `${total} gold`;
+goldUpgradeButton.addEventListener('click', () => {
+    goldUpgrade.upgrade();
+    updateCostDisplays();
 });
 
-autoClick.addEventListener('click', () => {
-    if (total >= autoCost) {
-        total -= autoCost;
-        autoCost = Math.round((autoCost ** 1.02) + 1);
-        autoGold++;
-        autoClickDisplay.innerText = `${autoGold} gold/sec`;
-    }
-    totalGold.innerText = `${total} gold`;
-})
+autoClicker.addEventListener('click', () => {
+    autoClick.upgrade();
+    updateCostDisplays();
+});
 
-function levelUp() {
-    while (currentExp >= expNeededValue) {
-        currentExp -= expNeededValue;
-        currentLevel++;
-        expNeededValue = Math.round(expNeededValue * 1.2);
-        levelNumber.textContent = currentLevel;
-    }
+function updateDisplays() {
+    totalGold.innerText = `${gold.total} gold`;
+    goldPerClick.innerText = `${gold.goldPerClick} gold/click`;
+    goldPerSecond.innerText = `${gold.goldPerSecond} gold/sec`;
+};
+
+function updateCostDisplays() {
+    upgradeCost.innerText = `${goldUpgrade.cost} gold`;
+    autoClickCost.innerText = `${autoClick.cost} gold`;
+
 }
 
-function adjustExpBar() {
-    let ratio = currentExp / expNeededValue;
-    expFill.style.width = `${ratio * 100}%`;
-    expNeeded.textContent = `${currentExp}/${expNeededValue}`;
+function autoClickerInterval() {
+    gold.total += gold.goldPerSecond;
+    updateDisplays();
 }
 
-function addGold() {
-    total += autoGold;
-    totalGold.innerText = `${total} gold`;
-}
-
-const interval = setInterval(addGold, 1000);
-
-temp.addEventListener('click', () => {
-    console.log(skillCost);
-})
+setInterval(autoClickerInterval, interval);

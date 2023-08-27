@@ -20,6 +20,7 @@ body {
     align-items: center;
     background-color: #a3b18a;
     border-radius: 5px;
+    position: sticky;
 }
 
 .mainButtons {
@@ -37,6 +38,17 @@ body {
     border-radius: 10px;
     resize: both;
     overflow: auto;
+    font-size: small;
+}
+
+.mainButtons button {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainButtons button p {
+    margin: 0px;
+    font-size: 0.5em;
 }
 
 .mainButtons button {
@@ -88,35 +100,49 @@ body {
     margin: 10px;
 }
 
-
 .skillTree {
-    height: 500px;
-    width: 350px;
-    margin: 10px;
+    margin-top: 10px;
+    width: 400px;
+    height: 600px;
+    background-color: #283618;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    background-color: #a3b18a;
-    border: 5px solid #283618;
+    justify-content: space-between;
+    box-sizing: border-box;
     border-radius: 10px;
+    padding: 3px;
 }
 
-.manualSkills,
-.autoSkills,
-.fightSkills,
-.extraSkills {
-    margin: 10px;
+#manualSkills,
+#autoSkills,
+#fightSkills,
+#extraSkills {
+    width: calc(50% - 15px);
+    background-color: #a3b18a;
     display: flex;
-    max-width: fit-content;
-    flex-direction: column;
-    align-items: center;
-}
-
-.skillTree button {
-    margin: 5px;
-    max-width: 50px;
-    border: 2px solid #283618;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 7px;
+    box-sizing: border-box;
     border-radius: 5px;
-    background-color: #fefae0;
 }
 
+.skills button {
+    margin: 5px;
+    width: 50px;
+    height: 40px;
+    background-color: #fefae0;
+    border-radius: 5px;
+    position: relative;
+}
+
+#skill1 {
+    width: 75%;
+}
+
+#skill2,
+#skill3,
+#skill4,
+#skill5 {
+    width: 35%;
+}

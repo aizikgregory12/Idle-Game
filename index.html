@@ -1,155 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/styles.css">
-    <title>Idle Clicker</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/styles.css">
+        <title>Idle Clicker</title>
+    </head>
 
-<body>
-    <div class="mainDisplay">
-        <h1 id="total">
-            0 gold
-        </h1>
-        <h1 id="goldPerSecond">
-            0 gold/sec
-        </h1>
-        <h1 id="goldPerClick">
-            1 gold/click
-        </h1>
-    </div>
-    <div class="secondLayer">
-        <div class="mainButtons">
-            <button id="clickForGold">
-                Mine Here
-            </button>
+    <body>
+        <div class="mainDisplay">
+            <h1 id="total">
+                0 gold
+            </h1>
+            <h1 id="goldPerSecond">
+                0 gold/sec
+            </h1>
+            <h1 id="goldPerClick">
+                1 gold/click
+            </h1>
+        </div>
+        <div class="secondLayer">
+            <div class="mainButtons">
+                <button id="clickForGold">
+                    Mine Here
+                </button>
 
-            <button id="upgrade">
-                Upgrade Mine
-            </button>
+                <button id="upgrade">
+                    Upgrade Mine
+                    <p id="upgradeCost">
+                        10 gold
+                    </p>
+                </button>
 
-            <button id="autoClick">
-                Auto Mine
-            </button>
+                <button id="autoClick">
+                    Auto Mine
+                    <p id="autoCost">
+                        10 gold
+                    </p>
+                </button>
 
-            <button id="temp">
-                Temp
-            </button>
+                <button id="temp">
+                    Temp
+                </button>
+            </div>
+
+            <div class="expBar">
+                <div id="expFill">
+
+                </div>
+                <div class="expInfo">
+                    <h2 id="level">
+                        1
+                    </h2>
+                    <h2 id="expNeeded">
+                        0/100
+                    </h2>
+                </div>
+            </div>
+
         </div>
 
-        <div class="expBar">
-            <div id="expFill">
+        <div class="skillTree" id="skillContainer">
+            <div class="skills" id="manualSkills">
+                <h3>Manual</h3>
+                <button id="skill1">
+                    Skill 1
+                </button>
+                <button id="skill2">
+                    Skill 2
+                </button>
+                <button id="skill3">
+                    Right side
+                </button>
+                <button id="skill4">
+                    Left side
+                </button>
+                <button id="skill5">
+                    Right side
+                </button>
+            </div>
 
+            <div class="skills" id="autoSkills">
+                <h3>Auto</h3>
+                <button id="skill1">
+                    Skill 1
+                </button>
+                <button id="skill2">
+                    Left side
+                </button>
+                <button id="skill3">
+                    Right side
+                </button>
+                <button id="skill4">
+                    Left side
+                </button>
+                <button id="skill5">
+                    Right side
+                </button>
             </div>
-            <div class="expInfo">
-                <h2 id="level">
-                    1
-                </h2>
-                <h2 id="expNeeded">
-                    0/100
-                </h2>
-            </div>
-        </div>
 
-    </div>
+            <div class="skills" id="fightSkills">
+                <h3>Fighting</h3>
+                <button id="skill1">
+                    Skill 1
+                </button>
+                <button id="skill2">
+                    Left side
+                </button>
+                <button id="skill3">
+                    Right side
+                </button>
+                <button id="skill4">
+                    Left side
+                </button>
+                <button id="skill5">
+                    Right side
+                </button>
+            </div>
 
-    <div class="skillTree">
-        <div class="manualSkills">
-            <h3>Manual</h3>
-            <button id="skill_1">
-                Skill 1
-            </button>
-            <div id="secondLayerManualSkills">
-                <button>
+            <div class="skills" id="extraSkills">
+                <h3>Misc</h3>
+                <button id="skill1">
+                    Skill 1
+                </button>
+                <button id="skill2">
                     Left side
                 </button>
-                <button>
+                <button id="skill3">
                     Right side
                 </button>
-            </div>
-            <div id="thirdLayerManualSkills">
-                <button>
+                <button id="skill4">
                     Left side
                 </button>
-                <button>
-                    Right side
-                </button>
-            </div>
-        </div>
-
-        <div class="autoSkills">
-            <h3>Auto</h3>
-            <button id="skill_1">
-                Skill 1
-            </button>
-            <div id="secondLayerAutoSkills">
-                <button>
-                    Left side
-                </button>
-                <button>
-                    Right side
-                </button>
-            </div>
-            <div id="thirdLayerAutoSkills">
-                <button>
-                    Left side
-                </button>
-                <button>
-                    Right side
-                </button>
-            </div>
-        </div>
-
-        <div class="fightSkills">
-            <h3>Fighting</h3>
-            <button id="skill_1">
-                Skill 1
-            </button>
-            <div id="secondLayerFightSkills">
-                <button>
-                    Left side
-                </button>
-                <button>
-                    Right side
-                </button>
-            </div>
-            <div id="thirdLayerFightSkills">
-                <button>
-                    Left side
-                </button>
-                <button>
-                    Right side
-                </button>
-            </div>
-        </div>
-
-        <div class="extraSkills">
-            <h3>Misc</h3>
-            <button id="skill_1">
-                Skill 1
-            </button>
-            <div id="secondLayerExtraSkills">
-                <button>
-                    Left side
-                </button>
-                <button>
-                    Right side
-                </button>
-            </div>
-            <div id="thirdLayerExtraSkills">
-                <button>
-                    Left side
-                </button>
-                <button>
+                <button id="skill5">
                     Right side
                 </button>
             </div>
         </div>
-    </div>
-    <script src="scripts/gold.js"></script>
-    <script src="scripts/skills.js"></script>
-</body>
+
+        <script src="scripts/gold.js"></script>
+        <script src="scripts/skills.js"></script>
+        <script src="scripts/exp.js"></script>
+    </body>
 
 </html>
