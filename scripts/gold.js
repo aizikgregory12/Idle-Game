@@ -8,14 +8,18 @@ const autoClicker = document.querySelector('#autoClick');
 const upgradeCost = document.querySelector('#upgradeCost');
 const autoClickCost = document.querySelector('#autoCost');
 
-let interval = 1000;
-
 let gold = {
     total: 0,
     goldPerClick: 1,
     goldPerSecond: 0,
+    critChance: 0,
+    critBonus: 2,
     addGold() {
-        this.total += this.goldPerClick;
+        if (Math.random() * 100 <= this.critChance) {
+            this.total += this.goldPerClick * this.critBonus;
+        } else {
+            this.total += this.goldPerClick;
+        }
         updateDisplays();
     }
 };
@@ -30,7 +34,7 @@ let goldUpgrade = {
             gold.total -= this.cost;
             this.level++;
             this.cost = Math.round(this.cost * this.costMultiplier) + 1;
-            gold.goldPerClick = this.level * this.multiplier;
+            gold.goldPerClick = (this.level * this.multiplier) + exp.goldFromLevel;
         }
         updateDisplays();
     }
@@ -38,14 +42,15 @@ let goldUpgrade = {
 
 let autoClick = {
     cost: 10,
-    costMultiplier: 10,
+    costMultiplier: 1.2,
     level: 0,
     multiplier: 1,
+    interval: 1000,
     upgrade() {
         if (gold.total >= this.cost) {
             gold.total -= this.cost;
             this.level++;
-            this.cost = this.level * this.costMultiplier;
+            this.cost = Math.round(this.cost * this.costMultiplier) + 1;
             gold.goldPerSecond = this.level * this.multiplier;
         }
         updateDisplays();
@@ -86,4 +91,9 @@ function autoClickerInterval() {
     updateDisplays();
 }
 
-setInterval(autoClickerInterval, interval);
+let autoClickIntervalID = setInterval(autoClickerInterval, autoClick.interval);
+
+function updateAutoClickInterval() {
+    clearInterval(autoClickIntervalID);
+    autoClickIntervalID = setInterval(autoClickerInterval, autoClick.interval);
+}

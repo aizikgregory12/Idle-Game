@@ -1,7 +1,8 @@
 let exp = {
     currentExp: 0,
-    currentLevel: 1,
+    currentLevel: 0,
     expNeededValue: 100,
+    goldFromLevel: 0,
 }
 
 const expFill = document.getElementById('expFill');
@@ -14,7 +15,8 @@ function levelUp() {
         exp.currentLevel++;
         exp.expNeededValue = Math.round(exp.expNeededValue * 1.5);
         levelNumber.textContent = exp.currentLevel;
-        gold.goldPerClick += exp.currentLevel;
+        exp.goldFromLevel += exp.currentLevel;
+        gold.goldPerClick = (goldUpgrade.level * goldUpgrade.multiplier) + exp.goldFromLevel;
     }
     updateDisplays();
 }
