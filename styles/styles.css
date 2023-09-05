@@ -196,3 +196,21 @@ div .skills button {
 .skills button:hover::before {
     opacity: 1;
 }
+
+.thirdLayer {
+    display: flex;
+}
+
+.arena {
+    background-color: #283618;
+    margin: 10px;
+    width: calc(100% - 400px);
+    height: 600px;
+    border-radius: 10px;
+}
+
+img {
+    width: 100%;
+    height: 50%;
+    margin-top: 60px;
+}

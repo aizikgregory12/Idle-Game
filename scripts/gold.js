@@ -1,6 +1,7 @@
 const totalGold = document.getElementById('total');
 const goldPerClick = document.getElementById('goldPerClick');
 const goldPerSecond = document.getElementById('goldPerSecond');
+const clickSound = document.getElementById("click-sound");
 
 const goldUpgradeButton = document.querySelector('#upgrade');
 const clickHere = document.querySelector('#clickForGold');
@@ -58,6 +59,7 @@ let autoClick = {
 };
 
 clickHere.addEventListener('click', () => {
+    playClickSound();
     gold.addGold();
     exp.currentExp += gold.goldPerClick;
     levelUp();
@@ -89,6 +91,11 @@ function updateCostDisplays() {
 function autoClickerInterval() {
     gold.total += gold.goldPerSecond;
     updateDisplays();
+}
+
+function playClickSound() {
+    clickSound.currentTime = 0;
+    clickSound.play();
 }
 
 let autoClickIntervalID = setInterval(autoClickerInterval, autoClick.interval);

@@ -26,6 +26,8 @@
                     Mine Here
                 </button>
 
+                <audio id="click-sound" src="sounds/teacup-clink-sfx-156224.mp3"></audio>
+
                 <button id="upgrade">
                     Upgrade Mine
                     <p id="upgradeCost">
@@ -57,98 +59,106 @@
                         0/100
                     </h2>
                 </div>
+                <audio id="levelUp" src="sounds/army-rank-up-2-84543.mp3"></audio>
             </div>
 
         </div>
 
-        <div class="skillTree" id="skillContainer">
-            <div class="skills" id="manualSkills">
-                <h3>Manual</h3>
-                <button id="manualSkill1" title="Increase Upgrade Bonus">
-                    Skill 1
-                    (0/500)
-                </button>
-                <button id="manualSkill2" title="Decreases cost multiplier">
-                    Skill 2
-                    (0/100)
-                </button>
-                <button id="manualSkill3" title="Increases crit chance">
-                    Skill 3
-                    (0/10)
-                </button>
-                <button id="manualSkill4">
-                    Left side
-                </button>
-                <button id="manualSkill5" title="Inreases crit bonus">
-                    Skill 5
-                    (0/100)
-                </button>
+        <div class="thirdLayer">
+            <div class="skillTree" id="skillContainer">
+                <div class="skills" id="manualSkills">
+                    <h3>Manual</h3>
+                    <button id="manualSkill1" title="Increase Upgrade Bonus">
+                        Skill 1
+                        (0/500)
+                    </button>
+                    <button id="manualSkill2" title="Decreases cost multiplier">
+                        Skill 2
+                        (0/100)
+                    </button>
+                    <button id="manualSkill3" title="Increases crit chance">
+                        Skill 3
+                        (0/10)
+                    </button>
+                    <button id="manualSkill4">
+                        Left side
+                    </button>
+                    <button id="manualSkill5" title="Inreases crit bonus">
+                        Skill 5
+                        (0/100)
+                    </button>
+                </div>
+
+                <div class="skills" id="autoSkills">
+                    <h3>Auto</h3>
+                    <button id="autoSkill1" title="Increase upgrade bonus">
+                        Skill 1
+                        (0/500)
+                    </button>
+                    <button id="autoSkill2" title="Decreases cost multiplier">
+                        Skill 2
+                        (0/100)
+                    </button>
+                    <button id="autoSkill3" title="Decreases time inteval">
+                        Skill 3
+                        (0/10)
+                    </button>
+                    <button id="autoSkill4">
+                        Left side
+                    </button>
+                    <button id="autoSkill5">
+                        Right side
+                    </button>
+                </div>
+
+                <div class="skills" id="fightSkills">
+                    <h3>Fighting</h3>
+                    <button id="fightingSkill1">
+                        Skill 1
+                    </button>
+                    <button id="fightingSkill2">
+                        Left side
+                    </button>
+                    <button id="fightingSkill3">
+                        Right side
+                    </button>
+                    <button id="fightingSkill4">
+                        Left side
+                    </button>
+                    <button id="fightingSkill5">
+                        Right side
+                    </button>
+                </div>
+
+                <div class="skills" id="extraSkills">
+                    <h3>Misc</h3>
+                    <button id="extraSkill1">
+                        Skill 1
+                    </button>
+                    <button id="extraSkill2">
+                        Left side
+                    </button>
+                    <button id="extraSkill3">
+                        Right side
+                    </button>
+                    <button id="extraSkill4">
+                        Left side
+                    </button>
+                    <button id="extraSkill5">
+                        Right side
+                    </button>
+                </div>
             </div>
 
-            <div class="skills" id="autoSkills">
-                <h3>Auto</h3>
-                <button id="autoSkill1" title="Increase upgrade bonus">
-                    Skill 1
-                    (0/500)
-                </button>
-                <button id="autoSkill2" title="Decreases cost multiplier">
-                    Skill 2
-                    (0/100)
-                </button>
-                <button id="autoSkill3" title="Decreases time inteval">
-                    Skill 3
-                    (0/10)
-                </button>
-                <button id="autoSkill4">
-                    Left side
-                </button>
-                <button id="autoSkill5">
-                    Right side
-                </button>
-            </div>
-
-            <div class="skills" id="fightSkills">
-                <h3>Fighting</h3>
-                <button id="fightingSkill1">
-                    Skill 1
-                </button>
-                <button id="fightingSkill2">
-                    Left side
-                </button>
-                <button id="fightingSkill3">
-                    Right side
-                </button>
-                <button id="fightingSkill4">
-                    Left side
-                </button>
-                <button id="fightingSkill5">
-                    Right side
-                </button>
-            </div>
-
-            <div class="skills" id="extraSkills">
-                <h3>Misc</h3>
-                <button id="extraSkill1">
-                    Skill 1
-                </button>
-                <button id="extraSkill2">
-                    Left side
-                </button>
-                <button id="extraSkill3">
-                    Right side
-                </button>
-                <button id="extraSkill4">
-                    Left side
-                </button>
-                <button id="extraSkill5">
-                    Right side
-                </button>
+            <div class="arena">
+                <img src="images/zombie-156055.svg" alt="zombied" id="enemyImage">
             </div>
         </div>
 
         <script src="scripts/gold.js"></script>
         <script src="scripts/skills.js"></script>
         <script src="scripts/exp.js"></script>
+        <script src="scripts/enemies.js"></script>
     </body>
 
 </html>
